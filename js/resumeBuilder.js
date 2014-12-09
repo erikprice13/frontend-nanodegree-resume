@@ -115,13 +115,13 @@ function displayWork() {
 	}
 }
 
-function internationalName(name) {
+/*function inName(name) {
 	name = name.trim().split(" ");
 	name[1] = name[1].toUpperCase();
 	name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
 
 	return name[0] + " " + name[1];
-}
+}*/
 
 projects.display = function() {
 	for (project in projects.projects) {
@@ -164,6 +164,7 @@ function letsConnect() {
 	$("#letsConnect").append(formattedEmail);
 }
 
+$("#main").prepend(sunnyButton);
 displayWork();
 projects.display();
 education.display();
