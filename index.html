@@ -16,65 +16,45 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 -->
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css"></link>
-
-  <!--
-  jQuery is a common JavaScript library for reading and making changes to the
-  Document Object Model (DOM). The DOM is a tree that contains information
-  about what is actually visible on a website.
-
-  While HTML is a static document, the browser converts HTML to the
-  DOM and the DOM can change. In fact, JavaScript's power comes from
-  its ability to manipulate the DOM, which is essentially a JavaScript
-  object. When JavaScript makes something interesting happen on a
-  website, it's likely the action happened because JavaScript changed
-  the DOM. jQuery is fast and easy to use, but it doesn't do anything
-  you can't accomplish with vanilla (regular) JavaScript.
-  -->
   <script src="js/jQuery.js"></script>
-
-  <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
-
-  <!--
-  Uncomment the <script> tag below when you're ready to add an interactive
-  Google Map to your resume!
-  -->
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
   <meta name="viewport" content="width=device-width">
 </head>
 <body unresolved>
-  <div id="main">
-
-    <!--
-    Everything from here to the <script> tag below is the skeleton of your
-    website. Your code will add information to each of the sections of the
-    resume below. You can pretty easily figure out what each section will
-    display by looking at the id or at what's written between the <h2> tags.
-    -->
-    <div id="header" class="center-content">
-      <ul id="topContacts" class='flex-box'></ul>
-    </div>
-    <div style='clear: both;'></div>
-    <div id="workExperience" class='gray'>
-      <h2>Work Experience</h2>
-    </div>
-    <div id="projects">
-      <h2>Projects</h2>
-    </div>
-    <div id="education" class='gray'>
-      <h2>Education</h2>
-    </div>
-    <div id="skillsChart">
-      <h2>Skills Chart</h2>
-    </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
-    </div>
-    <div id="letsConnect" class='dark-gray'>
-      <h2 class='orange center-text'>Let's Connect</h2>
-      <ul id="footerContacts" class="flex-box">
-      </ul>
+  <div class = "deadGround">
+    <div class ="container" id="main">
+      <div id="header" class="center-content">
+        <ul id="topContacts" class='flex-box'></ul>
+      </div>
+      <div style='clear: both;'></div>
+      <div id="workExperience" class='gray'>
+        <h2>Work Experience</h2>
+      </div>
+      <div id="projects" class ="gray">
+        <h2>Projects</h2>
+      </div>
+      <div id="education" class='gray'>
+        <h2>Education</h2>
+      </div>
+      <div class="wrapMe">
+        <div id="skillsChart" class = "gray chart">
+          <h2>Skills Chart</h2>
+          <img src= "images/skillGraph.png" class ="img-responsive" id ="chart">
+        </div>
+        <div id="mapDiv" class ="gray">
+          <h2>Where I've Lived and Worked</h2>
+        </div>
+      </div>
+      <div id="letsConnect" class='dark-gray'>
+        <h2 class='orange center-text'>Let's Connect</h2>
+        <ul id="footerContacts" class="flex-box">
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -124,9 +104,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   if(document.getElementsByClassName("education-entry").length === 0) {
     document.getElementById("education").style.backgroundColor = "black";
   }
-  if(document.getElementsByClassName("skills-entry").length === 0) {
-    document.getElementById("skillsChart").style.backgroundColor = "black";
-  }
+//  if(document.getElementsByClassName("skills-entry").length === 0) {
+//    document.getElementById("skillsChart").style.backgroundColor = "black";
+//  }
   if(document.getElementsByClassName("flex-item").length === 0) {
     document.getElementById("letsConnect").style.backgroundColor = "black";
   }

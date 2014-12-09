@@ -1,10 +1,12 @@
-*{
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
     padding:0;
     margin:0;
     font-family: 'Roboto', sans-serif;
 }
-
-
 
 .education-entry, .work-entry, .project-entry {
   padding-left: 5%;
@@ -120,7 +122,8 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  padding-top: 2%;
+  background-color: gray;
 }
 
 .flex-box {
@@ -128,8 +131,20 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 10px;
+}
+
+#wrapMe {
+  white-space: nowrap;
+}
+
+#wrapMe > div {
+  display: inline-block;
+}
+
+.deadGround {
+  background-color: black;
 }
 
 .center-content {
@@ -165,12 +180,27 @@ img {
   display: inline-block;
 }
 
+#chart {
+  padding-left: 5%;
+  width: 100%;
+}
+
+#skillsChart img {
+  padding-right: 15%;
+  padding-left: 15%;
+}
+
 span {
   padding: 5px;
 }
 
 #letsConnect {
   text-align: center;
+}
+
+#footerContacts {
+  margin: 0;
+  padding: 0;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -205,9 +235,13 @@ span {
 }
 
 #mapDiv {
-  height: 400px;
+  height: 500px;
   width: 100%;
-  padding-bottom: 5%;
+  padding-bottom: 100px
+}
+
+#mapDiv h2 {
+  margin-bottom: 20px;
 }
 
 @media only screen and (min-width: 750px) {

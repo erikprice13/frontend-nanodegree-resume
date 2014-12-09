@@ -7,8 +7,9 @@ var bio = {
 		"github" : "github.com/erikprice13",
 		"location" : "Gig Harbor, WA"
 	},
+	"location" : "Gig Harbor, WA",
 	"welcomeMessage" : "Welcome to my resume page.",
-	"skills" : ["HTML", "CSS", "Javascript", "Java", "C++"],
+	"skills" : ["HTML", "CSS", "Javascript", "Java", "C++", "Leadership"],
 	"myPicture" : "images/me.png"
 };
 
@@ -79,12 +80,16 @@ var projects = {
 	}
 };
 
-var formattedName = HTMLheaderName.replace("%data%", bio.myName);
-$("#header").append(formattedName);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.myRole);
-$("#header").append(formattedRole);
-var formattedPic = HTMLbioPic.replace("%data%", bio.myPicture);
-$("#header").append(formattedPic);
+function formattedHeader() {
+	var formattedName = HTMLheaderName.replace("%data%", bio.myName);
+	$("#header").append(formattedName);
+	var formattedRole = HTMLheaderRole.replace("%data%", bio.myRole);
+	$("#header").append(formattedRole);
+	var formattedPic = HTMLbioPic.replace("%data%", bio.myPicture);
+	$("#header").append(formattedPic);
+}
+
+formattedHeader();
 
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
@@ -93,6 +98,7 @@ if (bio.skills.length > 0) {
 		$("#skills").append(formattedSkill);
 	}
 }
+
 function displayWork() {
 	for (job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
@@ -146,9 +152,22 @@ education.display = function() {
 		$(".education-entry:last").append(formattedMajor);
 	}
 }
+
+function letsConnect() {
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	$("#letsConnect").append(formattedMobile);
+	var formattedLocation = HTMLlocation.replace("%data%", bio.location);
+	$("#letsConnect").append(formattedLocation);
+	var formattedgitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+	$("#letsConnect").append(formattedgitHub);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	$("#letsConnect").append(formattedEmail);
+}
+
 displayWork();
 projects.display();
 education.display();
+letsConnect();
 
 $(document).click(function(loc) {
 	var x = loc.pageX;
