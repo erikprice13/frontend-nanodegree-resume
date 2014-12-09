@@ -18,7 +18,7 @@ var work = {
 			"currentPosition" : "Server",
 			"employer" : "CHRISTA Camps",
 			"yearsWorked" : "3",
-			"location" : "Port Orchard",
+			"location" : "Port Orchard, WA",
 			"dates" : "Aug 2011 to Present",
 			"myDescription" : "Deep cleaning, serving food, constant public contact, leadership, time management, management skills."
 		},
@@ -26,7 +26,7 @@ var work = {
 			"currentPosition" : "Receptionist",
 			"employer" : "Great Clips",
 			"yearsWorked" : "1",
-			"location" : "Port Orchard",
+			"location" : "Port Orchard, WA",
 			"dates" : "Sept 2014 to Present",
 			"myDescription" : "Sweeping, counting and running money, manning the front desk, talking with customers, memorizing hundreds of products and what they do, running all background jobs and chores to run a hair salon."
 		}
@@ -34,9 +34,26 @@ var work = {
 };
 
 var education = {
-	"nameOfSchool" : "Tacoma Community College",
-	"yearsAttended" : "3",
-	"cityOfSchool" : "Tacoma"
+	"schools" : {
+		"PenHigh" : {
+			"nameOfSchool" : "Peninsula High School",
+			"datesAttended" : "September 2008 - June 2011",
+			"location" : "Purdy, WA",
+			"major" : "High School Diploma"
+		},
+		"TCC" : {
+			"nameOfSchool" : "Tacoma Community College",
+			"datesAttended" : "September 2011 - August 2014",
+			"location" : "Tacoma, WA",
+			"major" : "Associates Degree of Arts and Sciences with a Computer Science Specialization"
+		},
+		"udacity": {
+			"nameOfSchool" : "Udacity.com",
+			"datesAttended" : "Currently Attending",
+			"location" : "",
+			"major" : "Basic Certification in HTML, CSS and JavaScript"
+		}
+	}
 };
 
 var projects = {
@@ -77,7 +94,7 @@ if (bio.skills.length > 0) {
 	}
 }
 function displayWork() {
-		for (job in work.jobs) {
+	for (job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].currentPosition);
@@ -87,6 +104,8 @@ function displayWork() {
 		$(".work-entry:last").append(formattedDates);
 		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].myDescription);
 		$(".work-entry:last").append(formattedDescription);
+		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+		$(".work-entry:last").append(formattedLocation);
 	}
 }
 
@@ -99,7 +118,7 @@ function internationalName(name) {
 }
 
 projects.display = function() {
-		for (project in projects.projects) {
+	for (project in projects.projects) {
 		$("#projects").append(HTMLprojectStart);
 		var formattedpTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].myTitle);
 		$(".project-entry:last").append(formattedpTitle);
@@ -111,8 +130,26 @@ projects.display = function() {
 		//$(".project-entry:last").append(formattedpImage);
 	}
 }
+
+education.display = function() {
+	for (school in education.schools) {
+		$("#education").append(HTMLschoolStart);
+		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].nameOfSchool);
+		$(".education-entry:last").append(formattedName);
+		//var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].achievements);
+		//$(".education-entry:last").append(formattedDegree);
+		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		$(".education-entry:last").append(formattedLocation);
+		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].datesAttended);
+		$(".education-entry:last").append(formattedDates);
+		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+		$(".education-entry:last").append(formattedMajor);
+	}
+}
 displayWork();
 projects.display();
+education.display();
+
 $(document).click(function(loc) {
 	var x = loc.pageX;
 	var y = loc.pageY;
